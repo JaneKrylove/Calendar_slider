@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="page">
+        <header class="header">
+          <div class="header__container">
+            <a href="/" class="logo"><img class="logo__img" src="/images/logo.svg" alt="logo" /></a>
+
+              <div class="header__burger">
+                <span class="burger__line burger__line--first"></span>
+                <span class="burger__line burger__line--second"></span>
+                <span class="burger__line burger__line--third"></span>
+              </div>     
+          </div>
+        </header>
+
+        <main class="main">
+          <div class="main-container">
+            <ul class="breadcrumbs">
+              <li class="breadcrumb__item"><a class="breadcrumb__link breadcrumb__link--active" href="#">Главная / </a></li>
+              <li class="breadcrumb__item"><a class="breadcrumb__link" href="#">Календарь мероприятий</a></li>
+            </ul>
+
+            <section class="title-wrapper">
+              <h3 class="title-wrapper__title">Календарь мероприятий</h3>
+              <div class="select-wrapper">
+                <select name="year" id="year-select">
+                  <option value="2020">2022</option>
+                  <option value="2021">2023</option>
+                  <option value="2022" selected>2024</option>
+                  <option value="2023">2025</option>
+                </select>
+              </div>
+            </section>
+
+            <section class="calendar-wrapper">
+              <div class="calendar">
+                <div class="calendar__head">
+                  <i class="fa-solid fa-chevron-left icons" id="prev"></i>
+                  <div class="current-date">
+                    <h3></h3>
+                    <p></p>
+                  </div>
+                  <i class="fa-solid fa-chevron-right" id="next"></i>
+                  <!--  <div class="calendar__months-wrapper">
+                    <button class="btn btn--prev">-</button>
+                    <div class="calendar__months">
+                      <span class="calendar__months-item">февраль</span>
+                      <span class="calendar__months-item">март</span>
+                      <span class="calendar__months-item">апрель</span>
+                      <span class="calendar__months-item">май</span>
+                      <span class="calendar__months-item">июнь</span>
+                      <span class="calendar__months-item">июль</span>
+                      <span class="calendar__months-item">август</span>
+                      <span class="calendar__months-item calendar__months-item--active">сентябрь</span>
+                      <span class="calendar__months-item">октябрь</span>
+                      <span class="calendar__months-item">ноябрь</span>
+                      <span class="calendar__months-item">декабрь</span>
+                      <span class="calendar__months-item">январь</span>
+                    </div>
+                    <button class="btn btn--next">+</button>
+                  </div> -->
+
+                  <!-- <div class="month-slider">
+                    <div class="card-slider__item">февраль</div>
+                    <div class="card-slider__item">март</div>
+                    <div class="card-slider__item">апрель</div>
+                    <div class="card-slider__item">май</div>
+                    <div class="card-slider__item">июнь</div>
+                    <div class="card-slider__item">июль</div>
+                    <div class="card-slider__item">август</div>
+                    <div class="card-slider__item">сентябрь</div>
+                    <div class="card-slider__item">октябрь</div>
+                    <div class="card-slider__item">ноябрь</div>
+                    <div class="card-slider__item">декабрь</div>
+                    <div class="card-slider__item">январь</div>
+                  </div> -->
+
+                  <div class="calendar__dropdown">Свернуть</div>
+                </div>
+                <div class="calendar__body">
+                  <ul class="calendar__weeks">
+                    <li class="calendar__week">пн</li>
+                    <li class="calendar__week">вт</li>
+                    <li class="calendar__week">ср</li>
+                    <li class="calendar__week">чт</li>
+                    <li class="calendar__week">пт</li>
+                    <li class="calendar__week">сб</li>
+                    <li class="calendar__week">вс</li>
+                  </ul>
+                  <ul class="calendar__days">
+                    <li class="calendar__day calendar__day--inactive">29</li>
+                    <li class="calendar__day calendar__day--inactive">30</li>
+                    <li class="calendar__day calendar__day--inactive">31</li>
+                    <li class="calendar__day">
+                      <span class="calendar__day-value">1</span>
+                      <div class="calendar__day-events">
+                        <i class="calendar__day-event calendar__day-event--orange"></i>
+                        <i class="calendar__day-event calendar__day-event--green"></i>
+                        <i class="calendar__day-event calendar__day-event--red"></i>
+                        <i class="calendar__day-event calendar__day-event--yellow"></i>
+                        <i class="calendar__day-event calendar__day-event--blue"></i>
+                        <i class="calendar__day-event calendar__day-event--violet"></i>
+                      </div>
+                    </li>
+                    <li class="calendar__day">2</li>
+                    <li class="calendar__day">3</li>
+                    <li class="calendar__day">4</li>
+                    <li class="calendar__day">5</li>
+                    <li class="calendar__day">6</li>
+                    <li class="calendar__day">7</li>
+                    <li class="calendar__day">8</li>
+                    <li class="calendar__day">9</li>
+                    <li class="calendar__day">10</li>
+                    <li class="calendar__day">11</li>
+                    <li class="calendar__day">
+                      <span class="calendar__day-value">12</span>
+                      <div class="calendar__day-events">
+                        <i class="calendar__day-event calendar__day-event--orange"></i>
+                        <i class="calendar__day-event calendar__day-event--green"></i>
+                        <i class="calendar__day-event calendar__day-event--red"></i>
+                        <i class="calendar__day-event calendar__day-event--yellow"></i>
+                        <i class="calendar__day-event calendar__day-event--blue"></i>
+                        <i class="calendar__day-event calendar__day-event--violet"></i>
+                      </div>
+                    </li>
+                    <li class="calendar__day">13</li>
+                    <li class="calendar__day">
+                      <span class="calendar__day-value">14</span>
+                      <div class="calendar__day-events">
+                        <i class="calendar__day-event calendar__day-event--orange"></i>
+                        <i class="calendar__day-event calendar__day-event--green"></i>
+                        <i class="calendar__day-event calendar__day-event--red"></i>
+                        <i class="calendar__day-event calendar__day-event--yellow"></i>
+                        <i class="calendar__day-event calendar__day-event--blue"></i>
+                        <i class="calendar__day-event calendar__day-event--violet"></i>
+                      </div>
+                    </li>
+                    <li class="calendar__day">
+                      <span class="calendar__day-value">15</span>
+                      <div class="calendar__day-events">
+                        <i class="calendar__day-event calendar__day-event--orange"></i>
+                        <i class="calendar__day-event calendar__day-event--green"></i>
+                        <i class="calendar__day-event calendar__day-event--red"></i>
+                        <i class="calendar__day-event calendar__day-event--yellow"></i>
+                        <i class="calendar__day-event calendar__day-event--blue"></i>
+                        <i class="calendar__day-event calendar__day-event--violet"></i>
+                      </div>
+                    </li>
+                    <li class="calendar__day">
+                      <span class="calendar__day-value">16</span>
+                      <div class="calendar__day-events">
+                        <i class="calendar__day-event calendar__day-event--orange"></i>
+                        <i class="calendar__day-event calendar__day-event--green"></i>
+                        <i class="calendar__day-event calendar__day-event--red"></i>
+                        <i class="calendar__day-event calendar__day-event--yellow"></i>
+                        <i class="calendar__day-event calendar__day-event--blue"></i>
+                        <i class="calendar__day-event calendar__day-event--violet"></i>
+                      </div>
+                    </li>
+                    <li class="calendar__day">
+                      <span class="calendar__day-value">17</span>
+                      <div class="calendar__day-events">
+                        <i class="calendar__day-event calendar__day-event--orange"></i>
+                        <i class="calendar__day-event calendar__day-event--green"></i>
+                        <i class="calendar__day-event calendar__day-event--red"></i>
+                        <i class="calendar__day-event calendar__day-event--yellow"></i>
+                        <i class="calendar__day-event calendar__day-event--blue"></i>
+                        <i class="calendar__day-event calendar__day-event--violet"></i>
+                      </div>
+                    </li>
+                    <li class="calendar__day">18</li>
+                    <li class="calendar__day">19</li>
+                    <li class="calendar__day">20</li>
+                    <li class="calendar__day">
+                      <span class="calendar__day-value">21</span>
+                      <div class="calendar__day-events">
+                        <i class="calendar__day-event calendar__day-event--orange"></i>
+                        <i class="calendar__day-event calendar__day-event--green"></i>
+                        <i class="calendar__day-event calendar__day-event--red"></i>
+                        <i class="calendar__day-event calendar__day-event--yellow"></i>
+                        <i class="calendar__day-event calendar__day-event--blue"></i>
+                        <i class="calendar__day-event calendar__day-event--violet"></i>
+                      </div>
+                    </li>
+                    <li class="calendar__day">22</li>
+                    <li class="calendar__day">23</li>
+                    <li class="calendar__day">24</li>
+                    <li class="calendar__day">25</li>
+                    <li class="calendar__day">26</li>
+                    <li class="calendar__day calendar__day--current">27</li>
+                    <li class="calendar__day">28</li>
+                    <li class="calendar__day">29</li>
+                    <li class="calendar__day calendar__day--inactive">1</li>
+                    <li class="calendar__day calendar__day--inactive">2</li>
+                    <li class="calendar__day calendar__day--inactive">3</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="themes">
+                <h3 class="themes__title title--lg">Тематики</h3>
+                <div class="themes__list">
+                  <label class="check-box">
+                    <input class="input-item" type="checkbox" />
+                    <span class="check-style check-style-orange"></span>
+                    <span class="item-text">Фудшеринг</span>
+                  </label>
+                  <label class="check-box">
+                    <input class="input-item" type="checkbox" />
+                    <span class="check-style check-style-green"></span>
+                    <span class="item-text">Народный обед</span>
+                  </label>
+                  <label class="check-box">
+                    <input class="input-item" type="checkbox" />
+                    <span class="check-style check-style-yellow"></span>
+                    <span class="item-text">Марафон</span>
+                  </label>
+                  <label class="check-box">
+                    <input class="input-item" type="checkbox" />
+                    <span class="check-style check-style-violet"></span>
+                    <span class="item-text">Лекции</span>
+                  </label>
+                  <label class="check-box">
+                    <input class="input-item" type="checkbox" />
+                    <span class="check-style check-style-red"></span>
+                    <span class="item-text">Корзина доброты</span>
+                  </label>
+                  <label class="check-box">
+                    <input class="input-item" type="checkbox" />
+                    <span class="check-style check-style-blue"></span>
+                    <span class="item-text">Онлайн трансляции</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="events">
+                <div class="events__title events__title title--lg">
+                  <span class="title">События</span>
+                </div>
+                <form action="" class="events-wrapper"></form>
+                <div class="events__period">
+                  <span class="event-period">Все</span>
+                  <span class="event-period">Ближайшие</span>
+                  <span class="event-period">Прошедшие</span>
+                </div>
+                <div class="events__more">
+                  <label class="check-box">
+                    <input class="input-item" type="checkbox" />
+                    <span class="check-style check-style-darkblue"></span>
+                    <span class="item-text">онлайн</span>
+                  </label>
+                  <label class="check-box" for="">
+                    <input class="input-item" type="checkbox" />
+                    <span class="check-style check-style-heart"></span>
+                    <span class="item-text">только избранное</span>
+                  </label>
+
+                  <!-- <img class="event-favorite-ico" src="images/heart.svg" alt="heart" > -->
+                </div>
+              </div>
+              <div class="location">
+                <div class="location__title location__title title--lg">
+                  <span>Где</span>
+                </div>
+                <select class="dropdown">
+                  <option value="2020" selected>Вся Россия</option>
+                  <option value="2021">Москва</option>
+                  <option value="2022">Санкт-Петербург</option>
+                  <option value="2023">Хабаровск</option>
+                </select>
+                <span class="info">Показаны мероприятия во всех регионах с сентября 2024 года во всех тематиках</span>
+              </div>              
+            </section>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
