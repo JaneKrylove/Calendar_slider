@@ -1,0 +1,125 @@
+.calendar-wrapper {
+  background-color: $primaryBlue;
+  border-radius: 10px 10px 10px 10px;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__body {
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+.calendar {
+  border-bottom: 1px solid $primaryWhite;
+  padding: 10px 20px 20px 20px;
+  color: $primaryWhite;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 23px;
+    cursor: pointer;
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 1px;
+      width: 95%;
+      top: 30px;
+      background-color: $primaryWhite;
+      opacity: 40%;
+      text-align: center;
+      left: 5px;
+    }
+  }
+
+  &__months-wrapper {
+    display: flex;
+  }
+
+  &__months-item {
+    display: inline-block;
+    width: 30%;
+    font-size: 14px;
+    padding: 5px 6px;
+    opacity: 0.5;
+  }
+
+  &__months-item--active {
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__weeks {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__week {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: calc(100% / 7);
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    margin-bottom: 12px;
+  }
+
+  &__days {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    li {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      width: calc(100% / 7);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 14px;
+      cursor: pointer;
+      margin-bottom: 12px;
+      z-index: 1;
+    }
+
+    li.inactive {
+      color: $primaryWhite;
+      opacity: 40%;
+    }
+
+    li.active::after {
+      position: absolute;
+      content: "";
+      width: 22px;
+      height: 22px;
+      top: 50%;
+      left: 50%;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      background: $primaryRed;
+      z-index: -1;
+    }
+  }
+}

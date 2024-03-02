@@ -1,0 +1,26 @@
+<section class="calendar-wrapper">
+  <div class="calendar">
+    <div class="calendar__head">
+      <span id="prev"><i class="fa-solid fa-chevron-left icons"></i></span>
+      <div class="title"></div>
+      <span id="next"><i class="fa-solid fa-chevron-right"></i></span>
+      <select class="calendar-status">
+        <option value="2020">Свернуть</option>
+      </select>
+    </div>
+    <div class="calendar__body">
+      <ul class="calendar__weeks">
+        <li class="calendar__week">пн</li>
+        <li class="calendar__week">вт</li>
+        <li class="calendar__week">ср</li>
+        <li class="calendar__week">чт</li>
+        <li class="calendar__week">пт</li>
+        <li class="calendar__week">сб</li>
+        <li class="calendar__week">вс</li>
+      </ul>
+      <ul class="calendar__days"></ul>
+    </div>
+  </div>
+
+  @@include('src/components/themes/themes.html') @@include('src/components/events/events.html')
+</section>

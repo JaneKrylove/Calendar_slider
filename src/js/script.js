@@ -1,99 +1,53 @@
-//=include header.js
-//=include footer.js
+const daysTag = document.querySelector(".calendar__days"),
+  currentDate = document.querySelector(".title"),
+  prevNextIcon = document.querySelectorAll(".calendar__head span");
 
-// const userName = "Ivan";
-// console.log(`это новый общий консоль ${userName}`);
 
-// $(document).ready(function(){
-//   $(".card-slider").slick();
-// });
+let date = new Date(),
+  currYear = date.getFullYear(),
+  currMonth = date.getMonth();
 
-// $(document).ready(function () {
-//   $(".card-slider").slick({
-//     prevArrow: ".btn--slider-prev",
-//     nextArrow: ".btn--slider-next",
-//   });
-// });
 
-// $(".card-slider").on("afterChange", function (event, slick, current_slide_index, next_slide_index) {
-//   event.target.classList.add("animate__animated");
-//   event.target.classList.add("animate__bounce");
-// });
+const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
 
-/* $('.calendar__body').slick({
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  arrows: false,
-  fade: true,
-  asNavFor: '.calendar__months'
-}); */
+const renderCalendar = () => {
+  let firstDayofMonth = new Date(currYear, currMonth, 0).getDay(), 
+    lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), 
+    lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), 
+    lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); 
+  let liTag = "";
 
-/* $(".calendar__months").slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  // asNavFor: ".calendar__body",
-  centerMode: true,
-  focusOnSelect: true,
-  // prevArrow: ".btn--prev",
-  // nextArrow: ".btn--next",
-}); */
+  for (let i = firstDayofMonth; i > 0; i--) {
+    
+    liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+  }
 
-/* $(document).ready(function(){
-  $(".calendar__months").slick({
-    centerMode: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: "40px",
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          arrows: false,
-          centerMode: true,
-          centerPadding: "40px",
-          slidesToShow: 1,
-        },
-      },
-    ],
-  });
+  for (let i = 1; i <= lastDateofMonth; i++) {
+    
+    let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
+    liTag += `<li class="${isToday}">${i}</li>`;
+  }
+
+  for (let i = lastDayofMonth; i < 7; i++) {
+    
+    liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`;
+  }
+  currentDate.innerText = `${months[currMonth]} ${currYear}`; 
+  daysTag.innerHTML = liTag;
+};
+renderCalendar();
+
+prevNextIcon.forEach((icon) => {
   
+  icon.addEventListener("click", () => {    
+    currMonth = icon.id === "prev" ? currMonth - 1 : currMonth + 1;
+
+    if (currMonth < 0 || currMonth > 11) {      
+      date = new Date(currYear, currMonth, new Date().getDate());
+      currYear = date.getFullYear(); 
+      currMonth = date.getMonth(); 
+      date = new Date(); 
+    }
+    renderCalendar(); 
+  });
 });
- */
-
-// Установление текущей даты
-
-// let date = new Date();
-// const monthDays = document.querySelector('days');
-
-// const months = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
-
-// document.querySelector(".date h3").innerHTML = months[date.getMonth];
-
-// document.querySelector(".date p").innerHTML = date.toDateString();
-
-// // let currentYear = date.getFullYear();
-// // let currentMonth = date.getMonth();
-
-// // console.log(date, currentYear, currentMonth);
-
-// /* const renderCalendar = () => {
-//   currentDate.innerText = `${currentMonth} ${currentYear}`;
-
-// } */
-// let days = "";
-// for(let i = 1; i <= 31; i++) {
-//   days += `<i>${i}</i>`;
-//   monthDays.innerHTML = days;
-
-// }
-
-
-// renderCalendar();

@@ -1,0 +1,53 @@
+.breadcrumbs {
+  display: flex;
+  font-size: 10px;
+  color: $primaryBlue;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+.breadcrumb__link--active {
+  color: $primaryOrange;
+}
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-bottom: 10px;
+
+  &__title {
+    font-size: 14px;
+    font-weight: 900;
+    color: $primaryBlue;
+    margin-right: 10px;
+  }
+}
+
+.select-wrapper {
+  position: relative;
+  color: $primaryBlue;
+
+  &::after {
+    content: "";
+    position: absolute;
+  }
+}
+
+.year-select {
+  width: 67px;
+  padding: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  border-color: $primaryWhite;
+  background-color: $primaryWhite;
+  border-radius: 3px;
+  box-shadow: 0 0 5px $primaryBlue;
+}
+
+.calendar-status {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
+}
+

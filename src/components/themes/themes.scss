@@ -1,0 +1,80 @@
+.themes {
+  border-bottom: 1px solid $primaryWhite;
+  padding: 10px 20px 20px 20px;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.check-box {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  color: $primaryWhite;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: 1%;
+  margin-bottom: 11px;
+
+  &__item {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    //overflow: hidden;
+    appearance: none;
+    margin-right: 6px;
+    padding-left: 22px;
+  }
+
+  &__text {
+    margin-left: 20px;
+  }
+
+  &__style {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid $primaryWhite;
+    margin-left: 0px;
+    margin-right: 22px;
+  }
+  &__style::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__style--orange::after {
+    background-color: $primaryOrange;
+  }
+
+  &__style--green::after {
+    background-color: $primaryGreen;
+  }
+
+  &__style--yellow::after {
+    background-color: $primaryYellow;
+  }
+
+  &__style--violet::after {
+    background-color: $primaryViolet;
+  }
+  &__style--red::after {
+    background-color: $primaryRed;
+  }
+
+  &__style--blue::after {
+    background-color: $secondaryBlue;
+  }
+
+  &__item:checked + &__style {
+    box-shadow: 0 0 0 2px $primaryWhite;
+  }
+}

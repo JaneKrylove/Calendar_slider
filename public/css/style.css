@@ -4032,31 +4032,31 @@ legend {
 
 @font-face {
   font-family: "MuseoSansCyrl";
-  src: url("../fonts/fonts/museosanscyrl-500.woff2");
+  src: url("../fonts/fonts/museosanscyrl-500.woff2") format("woff2"), url("../fonts/fonts/museosanscyrl-500.woff?#iefix") format("woff"), url("../fonts/fonts/museosanscyrl-500.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "MuseoSansCyrl";
-  src: url("../fonts/fonts/museosanscyrl-700.woff2");
+  src: url("../fonts/fonts/museosanscyrl-700.woff2") format("woff2"), url("../fonts/fonts/museosanscyrl-700.woff?#iefix") format("woff"), url("../fonts/fonts/museosanscyrl-700.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "MuseoSansCyrl";
-  src: url("../fonts/fonts/museosanscyrl-900.woff2");
+  src: url("../fonts/fonts/museosanscyrl-900.woff2") format("woff2"), url("../fonts/fonts/museosanscyrl-900.woff?#iefix") format("woff"), url("../fonts/fonts/museosanscyrl-900.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
+/* Body */
 body {
   font-family: "MuseoSansCyrl", Arial, sans-serif;
   background-color: rgba(245, 249, 255, 0.9450980392);
 }
 
-/* header */
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4068,13 +4068,13 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: yellowgreen;
+  background-color: #fff;
 }
 
 .page {
   max-width: 393px;
   height: 852px;
-  background-color: pink;
+  background-color: #fff;
   padding: 0 27.5px;
 }
 
@@ -4096,7 +4096,6 @@ body {
   padding: 14px 15px 20px 27px;
 }
 
-/* Бургер меню */
 .header__burger {
   position: relative;
   display: block;
@@ -4128,12 +4127,10 @@ body {
   bottom: 0;
 }
 
-/* main */
-.main {
-  padding: 0 9.5px;
-}
-
 .breadcrumbs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   font-size: 10px;
   color: #054678;
   padding: 5px;
@@ -4144,12 +4141,6 @@ body {
   color: #E7650C;
 }
 
-/* .breadcrumb__link:visited {
-  color: $primaryOrange;
-}
-.breadcrumb__link:hover {
-  color: $primaryBlue;  
-} */
 .title-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4171,20 +4162,28 @@ body {
   position: relative;
   color: #054678;
 }
-
 .select-wrapper::after {
   content: "";
   position: absolute;
 }
 
-select {
+.year-select {
   width: 67px;
   padding: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
   border-color: #fff;
   background-color: #fff;
   border-radius: 3px;
   -webkit-box-shadow: 0 0 5px #054678;
   box-shadow: 0 0 5px #054678;
+}
+
+.calendar-status {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 12px;
 }
 
 .calendar-wrapper {
@@ -4207,23 +4206,10 @@ select {
   padding: 20px;
 }
 
-.breadcrumbs {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-/* Календарь */
 .calendar {
   border-bottom: 1px solid #fff;
   padding: 10px 20px 20px 20px;
   color: #fff;
-  /* &__current-date {
-    color: $primaryWhite;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 17px;
-  } */
 }
 .calendar__head {
   display: -webkit-box;
@@ -4237,19 +4223,19 @@ select {
   justify-content: space-between;
   position: relative;
   margin-bottom: 23px;
+  cursor: pointer;
 }
 .calendar__head:after {
   content: "";
   display: block;
   position: absolute;
-  height: 2px;
-  width: 80%;
-  top: 35px;
+  height: 1px;
+  width: 95%;
+  top: 30px;
   background-color: #fff;
   opacity: 40%;
   text-align: center;
-  top: 35px;
-  left: 22px;
+  left: 5px;
 }
 .calendar__months-wrapper {
   display: -webkit-box;
@@ -4282,8 +4268,23 @@ select {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 .calendar__week {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: relative;
   width: 14.2857142857%;
   text-transform: uppercase;
@@ -4298,91 +4299,51 @@ select {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  position: relative;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
-.calendar__day {
+.calendar__days li {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 14.2857142857%;
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
-  margin-bottom: 12px;
   cursor: pointer;
+  margin-bottom: 12px;
   z-index: 1;
 }
-.calendar__day::before {
+.calendar__days li.inactive {
+  color: #fff;
+  opacity: 40%;
+}
+.calendar__days li.active::after {
   position: absolute;
   content: "";
   width: 22px;
   height: 22px;
   top: 50%;
-  left: calc(50% - 13px);
-  z-index: -1;
+  left: 50%;
   border-radius: 50%;
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-}
-.calendar__day:not(.calendar__day--inactive):not(.calendar__day--current):hover::before {
-  background-color: #aaaaaa;
-}
-.calendar__day--current::before {
-  background-color: #e70c41;
-}
-.calendar__day--inactive {
-  color: #aaaaaa;
-}
-.calendar__day-value {
-  margin-right: 2px;
-}
-.calendar__day-events {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 20px;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-.calendar__day-event {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  margin-right: 1.18px;
-}
-.calendar__day-event--green {
-  background-color: #027500;
-}
-.calendar__day-event--orange {
-  background-color: #E7650C;
-}
-.calendar__day-event--red {
-  background-color: #e70c41;
-}
-.calendar__day-event--yellow {
-  background-color: #e70c41;
-}
-.calendar__day-event--yellow {
-  background-color: #f8b508;
-}
-.calendar__day-event--blue {
-  background-color: #34bfc6;
-}
-.calendar__day-event--violet {
-  background-color: #7f55aa;
+  background: #e70c41;
+  z-index: -1;
 }
 
-.date {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 17px;
-}
-
-/* Чекбоксы */
 .themes {
   border-bottom: 1px solid #fff;
   padding: 10px 20px 20px 20px;
@@ -4410,18 +4371,20 @@ select {
   letter-spacing: 1%;
   margin-bottom: 11px;
 }
-
-.input-item {
+.check-box__item {
   position: absolute;
   width: 1px;
   height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   margin-right: 6px;
   padding-left: 22px;
 }
-
-.check-style {
+.check-box__text {
+  margin-left: 20px;
+}
+.check-box__style {
   position: absolute;
   width: 14px;
   height: 14px;
@@ -4429,91 +4392,41 @@ select {
   margin-left: 0px;
   margin-right: 22px;
 }
-
-.check-style-orange::after {
+.check-box__style::after {
   content: "";
   width: 10px;
   height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.check-box__style--orange::after {
   background-color: #E7650C;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
-
-.check-style-green::after {
-  content: "";
-  width: 10px;
-  height: 10px;
+.check-box__style--green::after {
   background-color: #027500;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
-
-.check-style-yellow::after {
-  content: "";
-  width: 10px;
-  height: 10px;
+.check-box__style--yellow::after {
   background-color: #f8b508;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
-
-.check-style-violet::after {
-  content: "";
-  width: 10px;
-  height: 10px;
+.check-box__style--violet::after {
   background-color: #7f55aa;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
-
-.check-style-red::after {
-  content: "";
-  width: 10px;
-  height: 10px;
+.check-box__style--red::after {
   background-color: #e70c41;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
-
-.check-style-blue::after {
-  content: "";
-  width: 10px;
-  height: 10px;
+.check-box__style--blue::after {
   background-color: #34bfc6;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
 }
-
-.input-item:checked + .check-style {
+.check-box__item:checked + .check-box__style {
   -webkit-box-shadow: 0 0 0 2px #fff;
   box-shadow: 0 0 0 2px #fff;
 }
 
-.item-text {
-  margin-left: 20px;
-}
-
-/* Окончание чекбокса*/
-/* События */
 .events {
+  position: relative;
   border-bottom: 1px solid #fff transparent 0.4;
   padding: 10px 20px 20px 20px;
 }
@@ -4530,7 +4443,6 @@ select {
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
-  letter-spacing: 0%;
   margin-bottom: 10px;
 }
 .events__more {
@@ -4540,13 +4452,14 @@ select {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: start;
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  justify-content: left;
   font-size: 10px;
   font-weight: 400;
   line-height: 100%;
   letter-spacing: 1%;
+  margin-left: 10px;
 }
 
 .event-period {
@@ -4562,31 +4475,29 @@ select {
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
-
 .event-period:hover {
   border: 2px solid #E7650C;
 }
 
-.event-favorite {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: start;
-  color: #fff;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 14px;
-  letter-spacing: 0%;
-  margin-bottom: 10px;
+.check-box__style--heart {
+  display: block;
+  border: none;
+  width: 16px;
+  height: 14px;
+  font-size: 16px;
+}
+
+.check-heart {
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .location {
-  padding: 10px 20px 20px 20px;
+  padding: 0px 20px 20px 20px;
 }
 
 .title--lg {
@@ -4598,7 +4509,7 @@ select {
   margin-bottom: 10px;
 }
 
-.dropdown {
+.location-select {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4609,8 +4520,12 @@ select {
   border-radius: 4px;
   background-color: #054678;
   color: #fff;
-  -webkit-box-shadow: 0px 0px 10px 0px rgba(5, 70, 120, 0.15);
-  box-shadow: 0px 0px 10px 0px rgba(5, 70, 120, 0.15);
+  padding: 6px 9px 5px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 14px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(5, 70, 120, 0.1490196078);
+  box-shadow: 0px 0px 10px 0px rgba(5, 70, 120, 0.1490196078);
   margin-bottom: 20px;
 }
 
@@ -4620,6 +4535,5 @@ select {
   font-size: 9px;
   font-weight: 400;
   line-height: 11px;
-  letter-spacing: 0%;
 }
 /*# sourceMappingURL=style.css.map */
